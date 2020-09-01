@@ -86,11 +86,35 @@ html {
 	font-weight: 500;
 	color: #fff;
 }
-.header__logo:hover svg .change-green {
-	fill: #FB8F1D;
+.logo svg .change-green {
+	transition: fill .5s;
+	-webkit-transition: fill .5s;
+	-moz-transition: fill .5s;
+	-ms-transition: fill .5s;
+	-o-transition: fill .5s;
 }
-.header__logo:hover svg .change-yellow {
+.logo svg .change-yellow {
+	transition: fill .5s;
+	-webkit-transition: fill .5s;
+	-moz-transition: fill .5s;
+	-ms-transition: fill .5s;
+	-o-transition: fill .5s;
+}
+.logo:hover svg .change-green {
+	fill: #FB8F1D;
+	transition: .5s;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	-ms-transition: .5s;
+	-o-transition: .5s;
+}
+.logo:hover svg .change-yellow {
 	fill: #1ABE84;
+	transition: .5s;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	-ms-transition: .5s;
+	-o-transition: .5s;
 }
 
 .overlay {
@@ -545,7 +569,7 @@ html {
 .button_guides {
 	max-width: 162px;
 	width: 100%;
-	border: none;
+	text-decoration: none;
 }
 .guides__img {
 	max-width: 600px;
@@ -650,6 +674,7 @@ html {
 	padding-top: 100px;
 }
 .testimonials__slider img {
+	-o-object-fit: cover;
 	object-fit: cover;
 	min-height: 491px;
 	height: 100%;
@@ -668,8 +693,14 @@ html {
 	width: 40px;
 	height: 40px;
 	border: 2px solid #000000;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	border-radius: 50%;
 	-webkit-border-radius: 50%;
@@ -690,8 +721,14 @@ html {
 	width: 40px;
 	height: 40px;
 	border: 2px solid #000000;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	border-radius: 50%;
 	-webkit-border-radius: 50%;
@@ -718,11 +755,19 @@ html {
 	padding: 80px 120px 130px 140px;
 }
 .trending__descr {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 }
 .trending__gallery {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 	margin-top: 20px;
 }
@@ -733,11 +778,38 @@ html {
 	border-radius: 8px;
 	max-height: 300px;
 	height: 100%;
+	position: relative;
+}
+.trending__img::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	background-image: -webkit-gradient(linear, right top, left top, from(#c8d8d2), to(#939b69));
+	background-image: -o-linear-gradient(right, #c8d8d2, #939b69);
+	background-image: linear-gradient(to left, #c8d8d2, #939b69);
+	transition: opacity .5s;
+	-webkit-transition: opacity .5s;
+	-moz-transition: opacity .5s;
+	-ms-transition: opacity .5s;
+	-o-transition: opacity .5s;
+}
+.trending__img:hover::before {
+	opacity: 0.5;
+	transition: .5s;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	-ms-transition: .5s;
+	-o-transition: .5s;
 }
 .trending__item + .trending__item {
 	margin-left: 20px;
 }
 .trending__img img {
+	-o-object-fit: cover;
 	object-fit: cover;
 	height: 100%;
 	width: 100%;
@@ -762,6 +834,68 @@ html {
 	text-decoration: none;
 }
 
- 
+/* footer */
+
+.footer {
+	padding: 70px 80px 0px 110px;
+}
+.footer__content {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+.footer__item {
+	max-width: calc(440px - 100px);
+}
+.footer__item + .footer__item {
+	margin-left: 100px;
+}
+.footer__title {
+	font-weight: 700;
+	font-size: 19px;
+	margin-bottom: 10px;
+}
+.footer__text {
+	font-weight: 300;
+	font-size: 18px;
+	color: #848484;
+}
+.footer__text_main {
+	margin: 26px 0px 55px 0px;
+}
+.footer__copyright {
+	font-weight: 300;
+	font-size: 17px;
+	color: #848484;
+	margin-bottom: 81px;
+}
+.footer__item ul {
+	padding: 0;
+}
+.footer__item ul li {
+	list-style-type: none;
+	margin: 15px 0px;
+}
+.footer__item ul li a {
+	text-decoration: none;
+}
+.footer__social {
+	padding: 33px 0px;
+	border-top: 1px solid #C4C4C4;
+}
+.footer__icons {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.footer__icons svg {
+	margin: 0px 17px;
+}
 
 
