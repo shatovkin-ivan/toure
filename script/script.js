@@ -18,6 +18,13 @@ let menu = () => {
 }
 menu();
 
+// window.addEventListener('DOMContentLoaded', () => {
+// 	const arrows = document.querySelectorAll('.arrow-bottom'),
+// 	dropdown = document.querySelectorAll('.dropdown'),
+
+// })
+
+
 // модальное окно
 
 
@@ -29,9 +36,7 @@ $(document).ready(function () {
 		$('.overlay, #modal').fadeOut()
 	});
 
-
 // выпадающие окна
-
 
 	$('.arrow-bottom').on('click', function(event) {
 		event.preventDefault();
@@ -42,7 +47,8 @@ $(document).ready(function () {
 
 	$(listItem).on('click', function(event) {
 		event.preventDefault();
-		$(this).parents('.explore__input').find('.explore__input input').val($(this).text());
+		$(this).parents('.explore__wrap').find('.explore__input input').val($(this).text());
+		console.log();
 		$('.dropdown').slideUp(300);
 	});
 
