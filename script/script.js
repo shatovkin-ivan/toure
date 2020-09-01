@@ -1,21 +1,49 @@
-// window.addEventListener('DOMContentLoaded', () => {
-// 	var menuItem = document.querySelectorAll('.menu a');
-// 	console.log(menuItem);
-// 	for(let i = 0; i < menuItem.length; i++) {
-// 		menuItem[i].addEventListener('click', () => {
-// 			if (menuItem.classList.contains('list-active'))  {
-// 				menuItem.classList.remove('list-active');
-// 				menuItem[i].classList.add('list-active');
-// 			}
-// 		})
-// 	}
-// })
+// выделение активного пункта меню
+
+let menu = () => {
+	let menuItem = document.querySelectorAll('.menu a'),
+	menuName;
+
+	menuItem.forEach(item => {
+		item.addEventListener('click', selectMenu)
+	});
+
+	function selectMenu() {
+		menuItem.forEach(item => {
+			item.classList.remove('list-active');
+		});
+		this.classList.add('list-active');
+		menuName = this.getAttribute('data-menu-name');
+	}
+}
+menu();
+
+// модальное окно
+
+
 $(document).ready(function () {
 	$('[data-modal=modal]').on('click', function () {
 		$('.overlay, #modal').fadeIn();
 	})
 	$('.modal__close').on('click', function () {
 		$('.overlay, #modal').fadeOut()
+	});
+
+
+// выпадающие окна
+
+
+	$('.arrow-bottom').on('click', function(event) {
+		event.preventDefault();
+		 $(this).parents('.explore__input').find('.dropdown').slideToggle();
+	})
+
+	const listItem = $('.dropdown a');
+
+	$(listItem).on('click', function(event) {
+		event.preventDefault();
+		$(this).parents('.explore__input').find('.explore__input input').val($(this).text());
+		$('.dropdown').slideUp(300);
 	});
 
 	// Слайдер
